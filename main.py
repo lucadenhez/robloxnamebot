@@ -3,6 +3,9 @@ import requests, random, sys
 
 characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 attempts = 0
+success_sound = 'C:/example.mp3'
+failure_sound = 'C:/example.mp3'
+
 digits = int(input("How many digits? "))
 print('')
 max_tries = int(input("How many tries should the bot max out at? "))
@@ -20,11 +23,11 @@ else:
         if (requests.get('https://auth.roblox.com/v1/usernames/validate?request.username=' + random_name + '&request.birthday=1999-05-08').json()['code']) == 0:
             print('')
             print("BINGO! Name: " + random_name)
-            playsound('C:/driver/bong.mp3')
+            playsound(success_sound)
             sys.exit()
         else:
             print("Attempt: " + str(attempts) + " | Status: TAKEN" + " | Username: " + ''.join(random_name))
 
     print('')
     print("Sorry, no " + str(digits) + " digit names were available.")
-    playsound('C:/driver/amongus.mp3')
+    playsound(failure_sound)

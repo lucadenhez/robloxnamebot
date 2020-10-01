@@ -1,33 +1,91 @@
 from playsound import playsound
-import requests, random, sys
+import requests, sys, random
 
-characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+wordlist = "abcdefghijklmnopqrstuvwxyz"
+search_end_tone = 'C:\example.mp3'
+
+selected_word = ''.join(random.sample(wordlist, 5))
 attempts = 0
-success_sound = 'C:/example.mp3'
-failure_sound = 'C:/example.mp3'
+found_usernames = 0
 
-digits = int(input("How many digits? "))
-print('')
-max_tries = int(input("How many tries should the bot max out at? "))
+start_question = input("Start in continue mode or stop mode? (c/s) ")
 
-if max_tries > 5000:
+if start_question == "c":
     print('')
-    print("Sorry, max tries has to be less than 5,000.")
+    max_tries = int(input("How many tries should the bot max out at? "))
+
+    if max_tries > 500:
+        print('')
+        print("Sorry, max tries has to be less than 500.")
+        print('')
+        max_tries = int(input("How many tries should the bot max out at?"))
+
+    else:
+        print('')
+        text_file = open("C:\driver\words.txt","w+")
+
+        for i in range (0, max_tries):
+            selected_word = ''.join(random.sample(wordlist, 5))
+            attempts = attempts + 1
+
+            if (requests.get('https://auth.roblox.com/v1/usernames/validate?request.username=' + selected_word + '&request.birthday=1999-05-08').json()['code']) == 0:
+                found_usernames = found_usernames + 1
+                print("Attempt: " + str(attempts) + " | Username: " + selected_word)
+                text_file.write(selected_word + "  ")
+
+            else:
+                print("Attempt: " + str(attempts) + " | Status: TAKEN" + " | Username: " + selected_word)
+
+    if found_usernames == 0:
+        print('')
+        print("Sorry, no usernames were found in " + str(max_tries) + " attempts.")
+        playsound(search_end_tone)
+
+    else:
+        print('')
+        print("After " + str(max_tries) + " attempts, " + str(found_usernames) + " username(s) were found:")
+        print('')
+        text_file.close()
+        usernames = open("C:\driver\words.txt","r")
+        print(usernames.read())
+        text_file.close()
+        playsound(search_end_tone)
+
+elif start_question == "s":
     print('')
-    max_tries = int(input("How many tries should the bot max out at?"))
+    max_tries = int(input("How many tries should the bot max out at? "))
+
+    if max_tries > 500:
+        print('')
+        print("Sorry, max tries has to be less than 500.")
+        print('')
+        max_tries = int(input("How many tries should the bot max out at?"))
+
+    else:
+        print('')
+
+        for i in range(0, max_tries):
+            selected_word = ''.join(random.sample(wordlist, 5))
+            attempts = attempts + 1
+
+            if (requests.get('https://auth.roblox.com/v1/usernames/validate?request.username=' + selected_word + '&request.birthday=1999-05-08').json()['code']) == 0:
+                print('')
+                print("Username found! Username: " + selected_word)
+                playsound(search_end_tone)
+                sys.exit()
+
+            else:
+                print("Attempt: " + str(attempts) + " | Status: TAKEN" + " | Username: " + selected_word)
+
+        if found_usernames == 0:
+            print('')
+            print("Sorry, no usernames were found in " + str(max_tries) + " attempts.")
+            playsound(search_end_tone)
+
+        else:
+            print('')
+            playsound(search_end_tone)
+
 else:
     print('')
-    for i in range (0,max_tries):
-        random_name = ''.join(random.sample(characters, digits))
-        attempts = attempts + 1
-        if (requests.get('https://auth.roblox.com/v1/usernames/validate?request.username=' + random_name + '&request.birthday=1999-05-08').json()['code']) == 0:
-            print('')
-            print("BINGO! Name: " + random_name)
-            playsound(success_sound)
-            sys.exit()
-        else:
-            print("Attempt: " + str(attempts) + " | Status: TAKEN" + " | Username: " + ''.join(random_name))
-
-    print('')
-    print("Sorry, no " + str(digits) + " digit names were available.")
-    playsound(failure_sound)
+    print("Sorry, answer is either 'continue' or 'stop'.")

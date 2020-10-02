@@ -88,4 +88,4 @@ elif start_question == "s":
 
 else:
     print('')
-    print("Sorry, answer is either 'continue' or 'stop'.")
+    print("Sorry, answer is either 'c' or 's'.")

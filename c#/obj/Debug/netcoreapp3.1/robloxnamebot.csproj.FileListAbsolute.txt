@@ -1,0 +1,13 @@
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.exe
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.deps.json
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.runtimeconfig.json
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.runtimeconfig.dev.json
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.dll
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\bin\Debug\netcoreapp3.1\robloxnamebot.pdb
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.csprojAssemblyReference.cache
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.AssemblyInfoInputs.cache
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.AssemblyInfo.cs
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.csproj.CoreCompileInputs.cache
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.dll
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.pdb
+C:\Users\lucad\Documents\GitHub\robloxnamebot\c#\obj\Debug\netcoreapp3.1\robloxnamebot.genruntimeconfig.cache

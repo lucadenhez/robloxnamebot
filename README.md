@@ -1,2 +1,2 @@
 # robloxnamebot
-This bot finds rare Roblox usernames and notifies the user when found by using requests to a Roblox authentication website and return a .json 1 or 0 value.
+This bot brute forces random Roblox usernames with a desired length and GET requests the Roblox API to see if the name is valid. This can come up with some really rare names!
